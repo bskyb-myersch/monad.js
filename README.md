@@ -288,18 +288,6 @@ Now our DOM should be updated with the text converted to upper case.
 
 It becomes much clearer which functions deal with IO and which functions simply deal with data.  `read` and `write` return an `IO` effect but `toUpper` simply converts a supplied string to upper case.  This pattern is what you will often find in your software, having an effect when you start (i.e. reading from a data source, network etc), performing transformations on the results of that effect and finally having an effect at the end (such as writing result to a database, disk, or DOM).
 
-##Other useful functions
-###Functions
-####fn.compose(f1) *alias fn.o(fn1)*
-Function composition.  `f.compose(g)` is equivalent to:
-	function compose(x) {
-		return f(g(x))
-	}
-####fn.andThen(fn1)
-Function composition flipped. `f.andThen(g)` is equivalent to:
-	function compose(x) {
-		return g(f(x))
-	}
 
 ## Immutable lists
 
@@ -369,6 +357,23 @@ Will append the second list to the current list.
 	var list2 = [4,5,6].list()
 	var list3 = list1.append(list2)
 	// list3.toArray() == [1,2,3,4,5,6]
+
+##Other useful functions
+###Functions
+####fn.compose(f1) *alias fn.o(fn1)*
+Function composition.  `f.compose(g)` is equivalent to:
+	function compose(x) {
+		return f(g(x))
+	}
+####fn.andThen(fn1)
+Function composition flipped. `f.andThen(g)` is equivalent to:
+	function compose(x) {
+		return g(f(x))
+	}
+
+##Author
+
+Written and maintained by Chris Myers [@cwmyers](http://twitter.com/cwmyers).
 
 
 
